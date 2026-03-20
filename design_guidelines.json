@@ -1,0 +1,117 @@
+{
+  "theme_name": "Botanical Precision (Swiss High-Contrast + Organic Earthy)",
+  "theme_mode": "light",
+  "typography": {
+    "headings": "Cormorant Garamond",
+    "body": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "pairing_strategy": "Old Money Tech: Classic Serif Head + Sterile Mono/Clean Sans Body",
+    "rules": [
+      "Use tracking-tight or tracking-tighter on all large headings (size > 32px).",
+      "DO NOT use Inter or generic sans for headings. Headings must use Cormorant Garamond.",
+      "Overlines and small labels MUST be Uppercase + text-xs + tracking-[0.2em].",
+      "Body text should use IBM Plex Sans for technical clarity in data tables."
+    ]
+  },
+  "colors": {
+    "background": "#FAF8F5",
+    "surface": "#FFFFFF",
+    "surface_glass": "rgba(255, 255, 255, 0.85)",
+    "border": "#EBE9E0",
+    "text_primary": "#1C1E1C",
+    "text_secondary": "#5C605A",
+    "primary": "#C8553D",
+    "primary_hover": "#A9432D",
+    "success": "#2D4A22",
+    "ai_active": "#D97706",
+    "ai_terminal_bg": "#0A0C0A",
+    "ai_terminal_text": "#4ADE80",
+    "rules": [
+      "Never use pure #000000 or #808080. All greys must be tinted with warm or green tones.",
+      "Primary color (Terracotta #C8553D) is for high-value CTAs and Best Deal badges.",
+      "Success color (Deep Moss #2D4A22) is for completed scrapes and total savings indicators.",
+      "DO NOT use teal or purple. Follow the forbidden color rules."
+    ]
+  },
+  "visual_enhancers": {
+    "surface_strategy": "Grid Borders (The Technical Look) for the main dashboard. 1px borders with border-collapse styling. No shadows for a clean, Swiss brutalist feel.",
+    "glassmorphism": "Use Optical Clarity glass (bg-white/85, backdrop-blur-xl, 1px border-white/40) for sticky headers to ensure readability.",
+    "scraper_terminal": "Use Retro-Futurism for the active scraping module to contrast the clean dashboard. Deep black background, monospace font, scanning line overlay."
+  },
+  "component_name": [
+    "DashboardLayout",
+    "SavingsOverview",
+    "ActiveScrapers",
+    "URLInputForm",
+    "ScraperTerminal",
+    "PriceComparisonTable",
+    "ShoppingList",
+    "BestDealBadge"
+  ],
+  "grids": {
+    "dashboard_mode": "High Density Grid (grid-cols-1 md:grid-cols-3 lg:grid-cols-4)",
+    "gap_strategy": "Tight (gap-4 or gap-6) utilizing 1px borders to create the Grid Borders technical look",
+    "span_logic": {
+      "summary_cards": "col-span-1",
+      "price_table": "col-span-3 row-span-2",
+      "scraper_status": "col-span-1 row-span-2"
+    }
+  },
+  "layouts": {
+    "general": "Sidebar navigation with a top header for breadcrumbs and actions.",
+    "container": "Max-width container, NO center alignment on text. Left-align dense content.",
+    "spacing": "Generous Spacing: p-6 or p-8 for standard cards, p-12 for empty states."
+  },
+  "motion": {
+    "hover": "Slight lift (-translate-y-[1px]) and border color darkening for cards.",
+    "transitions": "Use specific properties (transition-transform 0.2s ease, opacity 0.2s ease), NEVER transition: all.",
+    "scraper_animation": "Use Framer Motion to animate the 'Tracing Beam' border around the active scraper card."
+  },
+  "accessibility": {
+    "contrast": "Maintain minimum 4.5:1 for normal text, 3:1 for large text.",
+    "focus": "Focus states must have high contrast (focus:ring-2 focus:ring-primary focus:outline-none).",
+    "testing": "All interactive elements MUST include a data-testid attribute in kebab-case."
+  },
+  "media": {
+    "images": "Images must not exceed 80vh on mobile. Use text shadows when placing text over images.",
+    "icons": "Use @phosphor-icons/react or lucide-react. Duotone weight for marketing areas, regular for data density."
+  },
+  "3d_libraries": {
+    "recommendation": "Use framer-motion for UI transitions. 3D is overkill for this specific budget data tool, focus on clean high-density data visualization."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1741515044903-a793c42b3f70?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxmcmVzaCUyMG9yZ2FuaWMlMjBwcm9kdWNlJTIwbWFya2V0fGVufDB8fHx8MTc3NDA0Njg2OHww&ixlib=rb-4.1.0&q=85",
+      "category": "Hero / Background",
+      "description": "Fresh organic produce market, use as an accent image or for the empty state background of the shopping list."
+    },
+    {
+      "url": "https://images.pexels.com/photos/4959926/pexels-photo-4959926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "Empty State",
+      "description": "Close up of a long grocery receipt. Use for the 'No comparisons yet' state on the Results page."
+    }
+  ],
+  "component_path": "/app/frontend/src/components/",
+  "instructions_to_main_agent": [
+    "Initialize React app with Tailwind CSS and install required libraries: framer-motion, lucide-react, sonner, clsx, tailwind-merge.",
+    "Configure tailwind.config.js to include the custom colors (Botanical Precision palette) and fonts (Cormorant Garamond, IBM Plex Sans, IBM Plex Mono).",
+    "Use ONLY .js and .jsx extensions. DO NOT use TypeScript (.tsx/.ts).",
+    "Shadcn components must be customized: remove generic border-radii, use the 1px grid border look for a high-end technical feel.",
+    "The Scraper component must simulate solving a captcha (via CapSolver) and using Claude Opus 4.5 via UI terminal text logs (Retro-Futurism style within the light UI).",
+    "Build the Comparison Table prioritizing readability of prices and clearly highlighting the best deal in Terracotta.",
+    "Follow the 'Hybrid Component Strategy': Pure HTML/Tailwind for structural layouts, Shadcn primitives for interactive logic (Forms, Dialogs)."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "DO NOT apply universal transition (e.g., transition: all). This breaks transforms.",
+    "DO NOT center align the app container (.App { text-align: center; } is banned).",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) but NEVER use completely transparent backgrounds under content.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "NEVER use emoji characters for icons. Use proper icon libraries.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "All interactive and key informational elements MUST include a 'data-testid' attribute (e.g., data-testid='url-submit-button').",
+    "Components MUST use named exports, Pages MUST use default exports.",
+    "Use Sonner for toast notifications.",
+    "Do not use generic SaaS blue. Stick strictly to the defined Botanical Precision palette."
+  ]
+}
